@@ -9,14 +9,32 @@ from cashregister import CashRegister
 def main():
     reg1 = CashRegister()
     reg1.addItem(13.5)
-    print("Item Count:", reg1.getCount(), "Price:" ,reg1.getTotal())
+    print(repr(reg1))
     reg1.addItem(15.8)
-    print("Item Count:", reg1.getCount(), "Price:" ,reg1.getTotal())
+    print(repr(reg1))
     reg1.undo()
-    print("Item Count:", reg1.getCount(), "Price:" ,reg1.getTotal())
+    print(repr(reg1))
     reg1.undo()
-    print("Item Count:", reg1.getCount(), "Price:" ,reg1.getTotal())
+    print(repr(reg1))
     reg1.undo()
+
+    reg2 =  CashRegister()
+    reg2.addItem(15)
+    reg2.addItem(5)
+    
+    reg3 = reg2 + reg1
+    print(repr(reg3))
+
+    reg3 = reg1 - reg2
+    print(repr(reg3))
+
+    reg3 = reg2 * 15
+    print(repr(reg3))
+
+    reg3 = reg2 / 15
+    print(repr(reg3))
+
+    print(repr(reg2))
 
 if __name__ == "__main__":
     main()

@@ -42,4 +42,29 @@ class CashRegister:
             print("You cannot undo anymore")
         pass
         
-
+    def __add__(self,other):
+        new = CashRegister()
+        new._itemCount = self._itemCount + other._itemCount
+        new._totalPrice = self._totalPrice + other._totalPrice
+        return new
+    
+    def __sub__(self,other):
+        new = CashRegister()
+        new._itemCount = self._itemCount - other._itemCount
+        new._totalPrice = self._totalPrice - other._totalPrice
+        return new
+    
+    def __mul__(self,scalar):
+        new = CashRegister()
+        new._itemCount = self._itemCount * scalar
+        new._totalPrice = self._totalPrice * scalar
+        return new
+    
+    def __truediv__(self,scalar):
+        new = CashRegister()
+        new._itemCount = self._itemCount // scalar
+        new._totalPrice = self._totalPrice / scalar
+        return new
+    
+    def __repr__(self):
+        return f"Total Price: {self._totalPrice}, Item Count: {self._itemCount}"
